@@ -5,13 +5,15 @@ import io.ebean.Finder;
 import javax.persistence.Entity;
 
 @Entity
-public class Name extends BaseModel{
+public class User extends BaseModel{
     private String firstName;
     private String lastName;
+    private String email;
 
-    public Name (String firstName, String lastName) {
+    public User (String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
     }
     public String getLastFirst(){
         return this.lastName + ", " + this.firstName;
@@ -20,5 +22,9 @@ public class Name extends BaseModel{
         return this.firstName + ", " + this.lastName;
     }
 
-    public static Finder<String, Name> find = new Finder<>(Name.class);
+    public String getEmail(){
+        return this.email;
+    }
+
+    public static Finder<String, User> find = new Finder<>(User.class);
 }
