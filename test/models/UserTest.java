@@ -16,8 +16,19 @@ public class UserTest extends WithApplication {
     public void testCanSaveAndFindUser() {
         new User("Abtin", "Sepanlou", "abtin.sepanlou@gmail.com").save();
         User user = User.find.query().where().eq("email", "abtin.sepanlou@gmail.com").findOne();
-        assertEquals("Abtin, Sepanlou", user.getFirstLast());
-        assertEquals("Sepanlou, Abtin", user.getLastFirst());
+        assertNotNull(user);
         assertEquals("abtin.sepanlou@gmail.com", user.getEmail());
+    }
+
+    @Test
+    public void testUserGetFirstLast() {
+        User user = new User("Abtin", "Sepanlou", "abtin.sepanlou@gmail.com");
+        assertEquals("Abtin, Sepanlou", user.getFirstLast());
+    }
+
+    @Test
+    public void testUserGetLastFirst() {
+        User user = new User("Abtin", "Sepanlou", "abtin.sepanlou@gmail.com");
+        assertEquals("Sepanlou, Abtin", user.getLastFirst());
     }
 }
