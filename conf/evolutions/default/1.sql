@@ -3,6 +3,16 @@
 
 # --- !Ups
 
+create table person (
+  id                            integer auto_increment not null,
+  created_at                    timestamp,
+  updated_at                    timestamp,
+  first_name                    varchar(255),
+  last_name                     varchar(255),
+  email                         varchar(255),
+  constraint pk_person primary key (id)
+);
+
 create table sport (
   id                            integer auto_increment not null,
   created_at                    timestamp,
@@ -12,20 +22,10 @@ create table sport (
   constraint pk_sport primary key (id)
 );
 
-create table user (
-  id                            integer auto_increment not null,
-  created_at                    timestamp,
-  updated_at                    timestamp,
-  first_name                    varchar(255),
-  last_name                     varchar(255),
-  email                         varchar(255),
-  constraint pk_user primary key (id)
-);
-
 
 # --- !Downs
 
-drop table if exists sport;
+drop table if exists person;
 
-drop table if exists user;
+drop table if exists sport;
 
